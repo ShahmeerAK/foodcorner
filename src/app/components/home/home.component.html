@@ -1,0 +1,34 @@
+<ul class="foods">
+  <li *ngFor="let food of foods">
+    <a><img src="{{ food.imgUrl }}" alt="Food Image" /> </a>
+    <div class="content">
+      <div class="name">
+        {{ food.name }}
+      </div>
+      <span class="favorite {{ food.favorite ? '' : 'not' }}">♡</span>
+      <div style="font-size: x-large; color: #e72929">
+        <ngb-rating
+          [max]="5"
+          [(rate)]="food.star"
+          checkedcolor="red"
+          uncheckedcolor="black"
+          [readonly]="true"
+        ></ngb-rating>
+        </div>
+        <div style="color:#e72929" class="product-item-footer">
+            <div class="origins">
+                <span  *ngFor="let origin of food.origins">
+                    {{food.origins}}
+                </span>
+            <div class="cook-time">
+                <span>🕑</span>
+                {{food.cookTime}}
+            </div>
+            <div class="price">
+                {{food.price| currency}}
+            </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
